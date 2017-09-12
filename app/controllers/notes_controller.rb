@@ -13,6 +13,11 @@ class NotesController < ApplicationController
     end
   end
 
+  def show
+    note = Note.find(params[:id])
+    render json: note
+  end
+
   def note_params
     params.require(:note).permit(:title, :content)
   end
